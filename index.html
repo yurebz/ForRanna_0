@@ -24,7 +24,6 @@
   .scene{position:fixed;inset:0;opacity:0;pointer-events:none;transition:opacity 1.1s ease;overflow:hidden;}
   .scene.active{opacity:1;pointer-events:auto;}
 
-  /* ---------- SKY ---------- */
   #scene-sky,#scene-space,#scene-lanterns{
     background:radial-gradient(ellipse at 50% 0%, #0c1230 0%, #04050f 55%, #000 100%);
   }
@@ -47,7 +46,6 @@
   @keyframes floatBtn{0%,100%{margin-bottom:0;}50%{margin-bottom:10px;}}
   @keyframes pulseGlow{0%,100%{box-shadow:0 0 18px 3px var(--gold-glow);}50%{box-shadow:0 0 30px 8px var(--gold-glow);}}
 
-  /* ---------- SPACE / BRIGHT STAR ---------- */
   .bright-star{
     position:absolute;top:42%;left:50%;width:14px;height:14px;border-radius:50%;
     background:#fffef2;transform:translate(-50%,-50%);cursor:pointer;
@@ -59,7 +57,6 @@
     font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;
     color:#9aa0c0;opacity:.7;text-align:center;}
 
-  /* ---------- FOREST / DUSK ---------- */
   .forest{position:absolute;left:0;right:0;bottom:0;height:22vh;z-index:2;pointer-events:none;
     background:linear-gradient(to top, #050608 0%, transparent 100%);}
   .tree{position:absolute;bottom:0;width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;
@@ -70,7 +67,6 @@
   .time-counter{position:absolute;top:6%;left:50%;transform:translateX(-50%);text-align:center;z-index:4;
     font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.14em;color:#e9d8b6;opacity:.85;}
 
-  /* ---------- SECOND STAR / GALLERY ---------- */
   .gallery-star{position:absolute;top:60%;left:28%;width:9px;height:9px;border-radius:50%;
     background:#f6d9ff;transform:translate(-50%,-50%);cursor:pointer;
     box-shadow:0 0 14px 4px #e6bfff,0 0 40px 14px rgba(230,191,255,.4);
@@ -98,7 +94,6 @@
   .lantern-tag{position:absolute;top:-1.6em;left:50%;transform:translateX(-50%);white-space:nowrap;
     font-family:'Great Vibes',cursive;font-size:1rem;color:#fff2c4;text-shadow:0 0 8px rgba(255,200,100,.8);}
 
-  /* ---------- LETTER ---------- */
   #scene-letter{display:flex;align-items:center;justify-content:center;padding:4vh 4vw;background:#050208;}
   .letter-paper{
     position:relative;max-width:640px;width:100%;max-height:90vh;overflow-y:auto;
@@ -118,14 +113,12 @@
     border-radius:30px;padding:13px 22px;font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.05em;
     cursor:pointer;box-shadow:0 0 18px 3px var(--gold-glow);animation:pulseGlow 2.4s ease-in-out infinite;}
 
-  /* small css hearts scattered on paper */
   .paper-heart{position:absolute;width:16px;height:14px;opacity:.35;background:var(--red);transform:rotate(-45deg);}
   .paper-heart::before,.paper-heart::after{content:"";position:absolute;width:16px;height:16px;background:var(--red);border-radius:50%;top:-8px;}
   .paper-heart::before{left:0;}
   .paper-heart::after{left:8px;}
   .h1{top:18px;left:18px;} .h2{top:24px;right:26px;} .h3{bottom:20px;left:24px;} .h4{bottom:26px;right:18px;}
 
-  /* ---------- LANTERNS ---------- */
   .lantern{
     position:absolute;bottom:-10vh;width:34px;height:44px;border-radius:6px 6px 10px 10px;
     background:linear-gradient(#ffdca0,#ff9d4d);
@@ -205,7 +198,6 @@
   <div class="stars-layer" id="stars3"></div>
   <div class="wish-caption">peça um desejo</div>
   <div id="lanternsField"></div>
-  <!-- coloque seu arquivo musica.mp3 na mesma pasta deste html para tocar automaticamente -->
   <audio id="bgMusic" src="musica.mp3" loop autoplay></audio>
 </div>
 
@@ -248,7 +240,7 @@ const restartLink=document.getElementById('restartLink');
 const music=document.getElementById('bgMusic');
 
 /* ---- contador de tempo (ajuste a data de início do namoro abaixo, se precisar) ---- */
-const START_DATE=new Date('2026-01-27T00:00:00');
+const START_DATE=new Date('2026-02-28T00:00:00');
 function updateCounter(){
   const now=new Date();
   let diff=Math.max(0, now-START_DATE);
@@ -260,7 +252,6 @@ function updateCounter(){
 }
 updateCounter(); setInterval(updateCounter,1000);
 
-/* ---- sons sutis (sintetizados, sem arquivos externos) ---- */
 let actx;
 function audioCtx(){ if(!actx) actx=new (window.AudioContext||window.webkitAudioContext)(); return actx; }
 function playWhoosh(){
@@ -307,7 +298,6 @@ document.getElementById('backFromGallery').addEventListener('click', ()=>{
   sceneSpace.classList.add('active');
 });
 
-/* Frases românticas originais, assinadas com o nome das bandas que ela curte */
 const songTitles=[
   '"Com você, até o caos vira lugar seguro." — Avenged Sevenfold',
   '"Você é o barulho bom em uma vida que era só silêncio." — My Chemical Romance',
